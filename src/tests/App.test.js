@@ -1,18 +1,9 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { renderWithRouter } from '../renderWithRouter';
 import App from '../App';
-import { NotFound } from '../components';
-
-const renderWithRouter = (component) => {
-  const history = createMemoryHistory();
-  return ({
-    ...render(<Router history={ history }>{component}</Router>),
-    history,
-  });
-};
+import NotFound from '../components/NotFound';
 
 describe('Teste o componente <App.js />', () => {
   it('1- Se o topo da aplicação contém um conjunto de links de navegação.', () => {
